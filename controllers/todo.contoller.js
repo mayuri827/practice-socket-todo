@@ -21,5 +21,7 @@ exports.UpdeteTodo = asynHandler(async (req, res) => {
 })
 exports.DeleteTodo = asynHandler(async (req, res) => {
     await Todo.findByIdAndDelete(req.params.id)
+    const result = await Todo.find()
+    io.emit("todo-create-response", result)
     res.json({ message: " DeleteTodo successfully" })
 })
