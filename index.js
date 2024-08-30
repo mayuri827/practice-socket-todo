@@ -22,8 +22,8 @@ app.use("/api/notes", require("./routers/Todo.router"))
 //step 3 404 routes
 app.use("*", (req, res) => {
     //                      👇Absolute path
-    // res.sendFile(path.join(__dirname, "dist", "index.html"))
-    res.status(404).json({ message: "Resource Not Found 404" })
+    res.sendFile(path.join(__dirname, "dist", "index.html"))
+    // res.status(404).json({ message: "Resource Not Found 404" })
 
 })
 //step 4 error handler
